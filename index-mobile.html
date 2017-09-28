@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PenguinPop</title>
+	<link rel="Shortcut Icon" href="/favicon.ico" />
+	<style type="text/css">
+		html,body {
+			background-color: #000;
+			color: #fff;
+			font-family: helvetica, arial, sans-serif;
+			margin: auto;
+			padding: 0;
+			font-size: 12pt;
+		}
+		#canvas {
+			image-rendering: optimizeSpeed;
+			-webkit-interpolation-mode: nearest-neighbor;
+			
+		}
+		@media screen and (min-height:480px) {
+            #canvas {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			border: 1px solid #555;
+			z-Index: 6;
+			min-height: 480px;
+		}
+		#game {
+			text-align: center;
+		}
+	</style>
+	<link rel="apple-touch-icon" href="media/touch-icon.png"/>
+	
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	
+	<script type="text/javascript" src="game.min.js"></script>
+	<script type="text/javascript" src="lib/weltmeister/jquery-1.4.2.min.js"></script>
+	
+	<script type="text/javascript">
+		function jsOnLoad() {
+			if(ig.ua.android) {
+				window.scrollTo(0,8);
+			} else {
+				setTimeout(function(){window.scrollTo(0,0);},1);
+			}
+		}
+	</script>
+</head>
+<body onload="jsOnLoad()" id="myBody">
+	<script type="text/javascript">
+		document.body.addEventListener('touchmove', function(e) { e.preventDefault(); window.scrollTo(0,1); }, false);
+	</script>
+	<div id="game" align="center">
+		<canvas id="canvas"></canvas>
+	</div>
+	
+</body>
+</html>
